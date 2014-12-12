@@ -12,14 +12,6 @@ Every window proxy object has a [[Window]] internal slot representing the wrappe
 
 The internal methods of window proxies are defined as follows, for a window proxy _O_. In all cases, let _W_ be the value of the [[Window]] internal slot of _O_.
 
-### [[GetPrototypeOf]\] ()
-
-1. Return the result of calling the [[GetPrototypeOf]] internal method of _W_.
-
-### [[SetPrototypeOf]\] (V)
-
-1. Return the result of calling the [[SetPrototypeOf]] internal method of _W_ with argument _V_.
-
 ### [[IsExtensible]\] ()
 
 1. Return **true**.
@@ -39,34 +31,6 @@ The internal methods of window proxies are defined as follows, for a window prox
 1. If _desc_.[[Configurable]] is **false**, then throw a **TypeError** exception.
 1. Return the result of calling the [[DefineOwnProperty]] internal method of _W_ with arguments _P_ and _Desc_.
 
-### [[HasProperty]\] (P)
+### All other internal methods
 
-1. Return the result of calling the [[HasProperty]] internal method of _W_ with argument _P_.
-
-### [[Get]\] (P, Receiver)
-
-1. Return the result of calling the [[Get]] internal method of _W_ with arguments _P_ and _Receiver_.
-
-### [[Set]\] (P, V, Receiver)
-
-1. Return the result of calling the [[Set]] internal method of _W_ with arguments _P_, _V_, and _Receiver_.
-
-### [[Delete]\] (P)
-
-1. Return the result of calling the [[Delete]] internal method of _W_ with argument _P_.
-
-### [[Enumerate]\] ()
-
-1. Return the result of calling the [[Enumerate]] internal method of _W_.
-
-### [[OwnPropertyKeys]\] ()
-
-1. Return the result of calling the [[OwnPropertyKeys]] internal method of _W_.
-
-### [[Call]\] (thisArgument, argumentsList)
-
-1. Return the result of calling the [[Call]] internal method of _W_ with arguments _thisArgument_ and _argumentsList_.
-
-### [[Construct]\] (argumentsList)
-
-1. Return the result of calling the [[Construct]] internal method of _W_ with argument _argumentsList_.
+All other internal methods must return the result of calling the corresponding internal method of _W_, passing along all arguments.
