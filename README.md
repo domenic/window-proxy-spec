@@ -22,18 +22,21 @@ The internal methods of window proxies are defined as follows, for a window prox
 
 ### [[IsExtensible]\] ()
 
-1. Return the result of calling the [[IsExtensible]] internal method of _W_.
+1. Return **true**.
 
 ### [[PreventExtensions]\] ()
 
-1. Return the result of calling the [[PreventExtensions]] internal method of _W_.
+1. Return **false**.
 
 ### [[GetOwnProperty]\] (P)
 
-1. Return the result of calling the [[GetOwnProperty]] internal method of _W_ with argument _P_.
+1. Let _desc_ the result of calling the [[GetOwnProperty]] internal method of _W_ with argument _P_.
+2. Set _desc_.[[Configurable]] to **true**.
+3. Return _desc_.
 
 ### [[DefineOwnProperty]\] (P, Desc)
 
+1. If _desc_.[[Configurable]] is **false**, then throw a **TypeError** exception.
 1. Return the result of calling the [[DefineOwnProperty]] internal method of _W_ with arguments _P_ and _Desc_.
 
 ### [[HasProperty]\] (P)
