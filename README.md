@@ -31,6 +31,8 @@ The internal methods of window proxies are defined as follows, for a window prox
 1. If _desc_.[[Configurable]] is **false**, then throw a **TypeError** exception.
 1. Return the result of calling the [[DefineOwnProperty]] internal method of _W_ with arguments _P_ and _Desc_.
 
+_NOTE_: if _desc_.[[Configurable]] is not present, the above steps do not prescribe a **TypeError**. See [related discussion on es-discuss](https://esdiscuss.org/topic/figuring-out-the-behavior-of-windowproxy-in-the-face-of-non-configurable-properties#content-40).
+
 ### All other internal methods
 
 All other internal methods must return the result of calling the corresponding internal method of _W_, passing along all arguments.
